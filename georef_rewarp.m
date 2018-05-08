@@ -243,6 +243,20 @@ for i = 1:1:length(d)
 %                 end
 % 
 %             end
+   %%% Copy the file (and all related files) to the /completed-tocheck/
+   %%% folder
+   move_list = {[process_dir filename_in], [process_dir 'completed-tocheck/' filename_in];...
+       [process_dir fname '.txt'], [process_dir 'completed-tocheck/' fname '.txt'];...
+       [process_dir filename_in '.points'], [process_dir 'completed-tocheck/' filename_in '.points']};
+   for j = 1:1:size(move_list,1)
+       try
+           status = movefile(move_list{j,1},move_list{j,2});
+       catch
+           status = 0;
+           
+       end
+       if status == 0; disp(['Error moving file ' move_list{j,1} ' to /completed-tocheck/']);end
+   end
     else
         disp(['Could not find the gcp file for: ' filename_in '. Breaking loop.']);
         logfile{i,2} = 'no_gcp';
