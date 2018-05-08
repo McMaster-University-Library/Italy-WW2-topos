@@ -1,5 +1,5 @@
 % function [logfile] = georef_rewarp(process_dir, georef_list, clipping_flag, ppi_out)
-% function [logfile] = georef_rewarp(process_dir, options)
+function [logfile] = georef_rewarp(process_dir, options)
 
 % georef_rewarp.m
 % This function runs through a collection of maps sheets (whether 1:25000 or 1:63360, as specified by series_label),
@@ -20,13 +20,13 @@
 %%% Running this on Windows requires setting up GDAL, Python and GDAL
 %%% Python bindings correctly, as well as Environment variable PATH values
 % see: https://pythongisandstuff.wordpress.com/2011/07/07/installing-gdal-and-ogr-for-python-on-windows/
-%%
-process_dir = 'H:\Digitization_Projects\WWII_Topographic_Maps\Italy\Italy_100k_TIF_600dpi\South_Italy_Grid';
-options.clipping_flag = 0;
-options.georef_list = '';
-options.t_srs = 'PROJCS["Lambert_Conformal_Conic",GEOGCS["GCS_Bessel 1841",DATUM["unknown",SPHEROID["bessel",6377397.155,299.1528128]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Lambert_Conformal_Conic_1SP"],PARAMETER["latitude_of_origin",39.5],PARAMETER["central_meridian",14],PARAMETER["scale_factor",0.99906],PARAMETER["false_easting",700000],PARAMETER["false_northing",600000],UNIT["Meter",1]]';
-options.ppi_out = 300;
-nargin = [1232];
+%% Testing purposes only
+% process_dir = 'H:\Digitization_Projects\WWII_Topographic_Maps\Italy\Italy_100k_TIF_600dpi\South_Italy_Grid';
+% options.clipping_flag = 0;
+% options.georef_list = '';
+% options.t_srs = 'PROJCS["Lambert_Conformal_Conic",GEOGCS["GCS_Bessel 1841",DATUM["unknown",SPHEROID["bessel",6377397.155,299.1528128]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Lambert_Conformal_Conic_1SP"],PARAMETER["latitude_of_origin",39.5],PARAMETER["central_meridian",14],PARAMETER["scale_factor",0.99906],PARAMETER["false_easting",700000],PARAMETER["false_northing",600000],UNIT["Meter",1]]';
+% options.ppi_out = 300;
+% nargin = [1232];
 %% Settings
 if nargin == 0
     disp('The variables ''process_dir'' and ''options'' must be set. Exiting.');
@@ -255,4 +255,4 @@ fid = fopen([process_dir 'logfile_' datestr(now,30) '.txt'],'w+');
 for i = 1:1:size(logfile,1)
 fprintf(fid,'%s\t %s\n',logfile{i,:});
 end
-fclose(fid)
+fclose(fid);
