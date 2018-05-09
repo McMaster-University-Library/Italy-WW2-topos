@@ -19,3 +19,11 @@ options.georef_list = ''; %not necessary.
 options.t_srs = 'PROJCS["Lambert_Conformal_Conic",GEOGCS["GCS_Bessel 1841",DATUM["unknown",SPHEROID["bessel",6377397.155,299.1528128]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Lambert_Conformal_Conic_1SP"],PARAMETER["latitude_of_origin",39.5],PARAMETER["central_meridian",14],PARAMETER["scale_factor",0.99906],PARAMETER["false_easting",700000],PARAMETER["false_northing",600000],UNIT["Meter",1]]';
 options.ppi_out = 300;
 georef_rewarp(process_dir,options);
+
+%% North Italy Grid
+process_dir = 'H:\Digitization_Projects\WWII_Topographic_Maps\Italy\Italy_100k_TIF_600dpi\North_Italy_Grid';
+options.clipping_flag = 0; % no clipping (not necessary)
+options.georef_list = ''; %not necessary.
+options.t_srs = 'PROJCS["Lambert_Conformal_Conic",GEOGCS["GCS_Bessel 1841",DATUM["unknown",SPHEROID["bessel",6377397.155,299.1528128]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Lambert_Conformal_Conic_1SP"],PARAMETER["latitude_of_origin",45.9],PARAMETER["central_meridian",14],PARAMETER["scale_factor",0.99906],PARAMETER["false_easting",800000],PARAMETER["false_northing",601000],UNIT["Meter",1]]';
+options.ppi_out = 300;
+georef_rewarp(process_dir,options);

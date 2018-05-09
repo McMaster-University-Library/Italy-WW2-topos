@@ -65,6 +65,11 @@ georef_path = [process_dir 'georef/'];
 if exist(georef_path,'dir')~=7
     mkdir(georef_path);
 end
+completed_path = [process_dir 'completed-tocheck/'];
+if exist(completed_path,'dir')~=7
+    mkdir(completed_path);
+end
+
 % tiles_path = [master_path 'tiles/'];
 
 %%% Try and figure out the OSGeo directory on windows
@@ -245,9 +250,9 @@ for i = 1:1:length(d)
 %             end
    %%% Copy the file (and all related files) to the /completed-tocheck/
    %%% folder
-   move_list = {[process_dir filename_in], [process_dir 'completed-tocheck/' filename_in];...
-       [process_dir fname '.txt'], [process_dir 'completed-tocheck/' fname '.txt'];...
-       [process_dir filename_in '.points'], [process_dir 'completed-tocheck/' filename_in '.points']};
+   move_list = {[process_dir filename_in], [completed_path filename_in];...
+       [process_dir fname '.txt'], [completed_path fname '.txt'];...
+       [process_dir filename_in '.points'], [completed_path filename_in '.points']};
    for j = 1:1:size(move_list,1)
        try
            status = movefile(move_list{j,1},move_list{j,2});
