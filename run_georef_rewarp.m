@@ -18,6 +18,12 @@ options.clipping_flag = 0; % no clipping (not necessary)
 options.georef_list = ''; %not necessary.
 options.t_srs = 'PROJCS["Lambert_Conformal_Conic",GEOGCS["GCS_Bessel 1841",DATUM["unknown",SPHEROID["bessel",6377397.155,299.1528128]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Lambert_Conformal_Conic_1SP"],PARAMETER["latitude_of_origin",39.5],PARAMETER["central_meridian",14],PARAMETER["scale_factor",0.99906],PARAMETER["false_easting",700000],PARAMETER["false_northing",600000],UNIT["Meter",1]]';
 options.ppi_out = 300;
+
+% Run GCP_bulk_convert to convert all QGIS GCP files to ArcGIS:
+conv_flag = 2; % 1=ArcGIS to QGIS; 2=QGIS to ArcGIS
+GCP_bulk_convert(process_dir,conv_flag);
+
+% Run georeferencing:
 georef_rewarp(process_dir,options);
 
 %% North Italy Grid
@@ -26,4 +32,10 @@ options.clipping_flag = 0; % no clipping (not necessary)
 options.georef_list = ''; %not necessary.
 options.t_srs = 'PROJCS["Lambert_Conformal_Conic",GEOGCS["GCS_Bessel 1841",DATUM["unknown",SPHEROID["bessel",6377397.155,299.1528128]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Lambert_Conformal_Conic_1SP"],PARAMETER["latitude_of_origin",45.9],PARAMETER["central_meridian",14],PARAMETER["scale_factor",0.99906],PARAMETER["false_easting",800000],PARAMETER["false_northing",601000],UNIT["Meter",1]]';
 options.ppi_out = 300;
+
+% Run GCP_bulk_convert to convert all QGIS GCP files to ArcGIS:
+conv_flag = 2; % 1=ArcGIS to QGIS; 2=QGIS to ArcGIS
+GCP_bulk_convert(process_dir,conv_flag);
+
+% Run georeferencing:
 georef_rewarp(process_dir,options);
